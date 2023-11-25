@@ -1,13 +1,7 @@
-import sys
-from pathlib import Path
-
 import pytest
 from google.cloud import storage
 
-# このスクリプトのディレクトリの親ディレクトリを取得し、srcパスに追加
-sys.path.append(str(Path(__file__).parent.parent / "src"))
-
-from processing_img import list_blobs_in_order  # 関数が定義されているモジュール名に置き換えてください
+from processing_img import list_blobs_in_order
 
 
 class MockBlob:

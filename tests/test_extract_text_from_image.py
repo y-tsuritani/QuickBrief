@@ -1,14 +1,8 @@
-import sys
-from pathlib import Path
-
 import pytest
 from google.cloud import storage, vision
 from google.cloud.vision_v1 import types
 
-# このスクリプトのディレクトリの親ディレクトリを取得し、srcパスに追加
-sys.path.append(str(Path(__file__).parent.parent / "src"))
-
-from processing_img import extract_text_from_image  # 関数が定義されているモジュール名に置き換えてください
+from processing_img import extract_text_from_image
 
 
 class MockBlob:

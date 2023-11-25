@@ -11,7 +11,6 @@ diagrams = "^0.23.4"
 google-cloud-storage = "^2.13.0"
 google-cloud-vision = "^3.4.5"
 
-
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.3"
 pytest-mock = "^3.12.0"
@@ -19,3 +18,7 @@ pytest-mock = "^3.12.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+testpaths = ["tests"]

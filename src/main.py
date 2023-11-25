@@ -1,8 +1,13 @@
+import os
 import sys
 from typing import List
 
 from google.cloud import storage, vision
 from google.cloud.vision_v1 import types
+
+# 環境変数の読み込み
+source_bucket_name = os.getenv("SOURCE_BUCKET_NAME")
+destination_bucket_name = os.getenv("DESTINATION_BUCKET_NAME")
 
 
 def list_blobs_in_order(bucket_name: str) -> List[str]:
@@ -68,7 +73,6 @@ def process_images(source_bucket_name: str, destination_bucket_name: str):
         save_text_to_bucket(destination_bucket_name, f"{file_name}.txt", text)
 
 
-if __name__ == "__main__":
-    source_bucket_name = sys.argv[1]
-    destination_bucket_name = sys.argv[2]
+# Cloud Functions から呼び出される関数
+def main(event, context):
     process_images(source_bucket_name, destination_bucket_name)

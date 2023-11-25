@@ -7,5 +7,9 @@ poetry.lock
 
 # terraform
 .terraform
+.terraform.lock.hcl
 
+# 容量の大きいファイルを除外
+*.zip
+data/*/*.png
 
